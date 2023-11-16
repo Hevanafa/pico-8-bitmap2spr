@@ -73,6 +73,8 @@
 
             pbSource.Image = img
 
+            lblHint.Visible = False
+
             ' Redraw
             If edited IsNot Nothing Then _
                 edited.Dispose()

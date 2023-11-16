@@ -33,6 +33,7 @@ Partial Class Form1
         Me.rb32x32 = New System.Windows.Forms.RadioButton()
         Me.rb16x16 = New System.Windows.Forms.RadioButton()
         Me.rb8x8 = New System.Windows.Forms.RadioButton()
+        Me.lblHint = New System.Windows.Forms.Label()
         CType(Me.pbSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -64,24 +65,30 @@ Partial Class Form1
         '
         'txbOutput
         '
+        Me.txbOutput.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.txbOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txbOutput.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbOutput.ForeColor = System.Drawing.Color.White
         Me.txbOutput.Location = New System.Drawing.Point(13, 216)
         Me.txbOutput.Margin = New System.Windows.Forms.Padding(4)
         Me.txbOutput.Multiline = True
         Me.txbOutput.Name = "txbOutput"
         Me.txbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txbOutput.Size = New System.Drawing.Size(264, 156)
+        Me.txbOutput.Size = New System.Drawing.Size(361, 156)
         Me.txbOutput.TabIndex = 2
         '
         'btnGenerate
         '
+        Me.btnGenerate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnGenerate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGenerate.Location = New System.Drawing.Point(13, 165)
         Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(264, 43)
+        Me.btnGenerate.Size = New System.Drawing.Size(361, 43)
         Me.btnGenerate.TabIndex = 3
         Me.btnGenerate.Text = "Generate SPR code"
-        Me.btnGenerate.UseVisualStyleBackColor = True
+        Me.btnGenerate.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -107,9 +114,10 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.rb32x32)
         Me.GroupBox1.Controls.Add(Me.rb16x16)
         Me.GroupBox1.Controls.Add(Me.rb8x8)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(284, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(116, 131)
+        Me.GroupBox1.Size = New System.Drawing.Size(90, 131)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sprite Size"
@@ -156,12 +164,23 @@ Partial Class Form1
         Me.rb8x8.Text = "8×8"
         Me.rb8x8.UseVisualStyleBackColor = True
         '
+        'lblHint
+        '
+        Me.lblHint.Location = New System.Drawing.Point(85, 60)
+        Me.lblHint.Name = "lblHint"
+        Me.lblHint.Size = New System.Drawing.Size(120, 71)
+        Me.lblHint.TabIndex = 7
+        Me.lblHint.Text = "Drag an image file to this window to start"
+        Me.lblHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(412, 385)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(387, 385)
+        Me.Controls.Add(Me.lblHint)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -170,9 +189,12 @@ Partial Class Form1
         Me.Controls.Add(Me.pbPreview)
         Me.Controls.Add(Me.pbSource)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ForeColor = System.Drawing.Color.White
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "PICO-8 Bitmap to Sprite (By Hevanafa, Nov 2023)"
         CType(Me.pbSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -192,4 +214,5 @@ Partial Class Form1
     Friend WithEvents rb8x8 As RadioButton
     Friend WithEvents pbSource As PictureBoxWithInterpolationMode
     Friend WithEvents pbPreview As PictureBoxWithInterpolationMode
+    Friend WithEvents lblHint As Label
 End Class
