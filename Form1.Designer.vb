@@ -22,17 +22,17 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.pbSource = New System.Windows.Forms.PictureBox()
-        Me.pbPreview = New System.Windows.Forms.PictureBox()
+        Me.pbSource = New PICO8Bitmap2Sprite.PictureBoxWithInterpolationMode()
+        Me.pbPreview = New PICO8Bitmap2Sprite.PictureBoxWithInterpolationMode()
         Me.txbOutput = New System.Windows.Forms.TextBox()
         Me.btnGenerate = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.rb8x8 = New System.Windows.Forms.RadioButton()
-        Me.rb16x16 = New System.Windows.Forms.RadioButton()
-        Me.rb32x32 = New System.Windows.Forms.RadioButton()
         Me.rb64x64 = New System.Windows.Forms.RadioButton()
+        Me.rb32x32 = New System.Windows.Forms.RadioButton()
+        Me.rb16x16 = New System.Windows.Forms.RadioButton()
+        Me.rb8x8 = New System.Windows.Forms.RadioButton()
         CType(Me.pbSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -40,19 +40,25 @@ Partial Class Form1
         '
         'pbSource
         '
+        Me.pbSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbSource.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor
         Me.pbSource.Location = New System.Drawing.Point(13, 29)
         Me.pbSource.Margin = New System.Windows.Forms.Padding(4)
         Me.pbSource.Name = "pbSource"
         Me.pbSource.Size = New System.Drawing.Size(128, 128)
+        Me.pbSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbSource.TabIndex = 0
         Me.pbSource.TabStop = False
         '
         'pbPreview
         '
+        Me.pbPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbPreview.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor
         Me.pbPreview.Location = New System.Drawing.Point(149, 29)
         Me.pbPreview.Margin = New System.Windows.Forms.Padding(4)
         Me.pbPreview.Name = "pbPreview"
         Me.pbPreview.Size = New System.Drawing.Size(128, 128)
+        Me.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbPreview.TabIndex = 1
         Me.pbPreview.TabStop = False
         '
@@ -108,27 +114,15 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sprite Size"
         '
-        'rb8x8
+        'rb64x64
         '
-        Me.rb8x8.AutoSize = True
-        Me.rb8x8.Checked = True
-        Me.rb8x8.Location = New System.Drawing.Point(6, 22)
-        Me.rb8x8.Name = "rb8x8"
-        Me.rb8x8.Size = New System.Drawing.Size(48, 20)
-        Me.rb8x8.TabIndex = 0
-        Me.rb8x8.TabStop = True
-        Me.rb8x8.Text = "8×8"
-        Me.rb8x8.UseVisualStyleBackColor = True
-        '
-        'rb16x16
-        '
-        Me.rb16x16.AutoSize = True
-        Me.rb16x16.Location = New System.Drawing.Point(6, 48)
-        Me.rb16x16.Name = "rb16x16"
-        Me.rb16x16.Size = New System.Drawing.Size(62, 20)
-        Me.rb16x16.TabIndex = 1
-        Me.rb16x16.Text = "16×16"
-        Me.rb16x16.UseVisualStyleBackColor = True
+        Me.rb64x64.AutoSize = True
+        Me.rb64x64.Location = New System.Drawing.Point(6, 100)
+        Me.rb64x64.Name = "rb64x64"
+        Me.rb64x64.Size = New System.Drawing.Size(62, 20)
+        Me.rb64x64.TabIndex = 3
+        Me.rb64x64.Text = "64×64"
+        Me.rb64x64.UseVisualStyleBackColor = True
         '
         'rb32x32
         '
@@ -140,15 +134,27 @@ Partial Class Form1
         Me.rb32x32.Text = "32×32"
         Me.rb32x32.UseVisualStyleBackColor = True
         '
-        'rb64x64
+        'rb16x16
         '
-        Me.rb64x64.AutoSize = True
-        Me.rb64x64.Location = New System.Drawing.Point(6, 100)
-        Me.rb64x64.Name = "rb64x64"
-        Me.rb64x64.Size = New System.Drawing.Size(62, 20)
-        Me.rb64x64.TabIndex = 3
-        Me.rb64x64.Text = "64×64"
-        Me.rb64x64.UseVisualStyleBackColor = True
+        Me.rb16x16.AutoSize = True
+        Me.rb16x16.Location = New System.Drawing.Point(6, 48)
+        Me.rb16x16.Name = "rb16x16"
+        Me.rb16x16.Size = New System.Drawing.Size(62, 20)
+        Me.rb16x16.TabIndex = 1
+        Me.rb16x16.Text = "16×16"
+        Me.rb16x16.UseVisualStyleBackColor = True
+        '
+        'rb8x8
+        '
+        Me.rb8x8.AutoSize = True
+        Me.rb8x8.Checked = True
+        Me.rb8x8.Location = New System.Drawing.Point(6, 22)
+        Me.rb8x8.Name = "rb8x8"
+        Me.rb8x8.Size = New System.Drawing.Size(48, 20)
+        Me.rb8x8.TabIndex = 0
+        Me.rb8x8.TabStop = True
+        Me.rb8x8.Text = "8×8"
+        Me.rb8x8.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -175,9 +181,6 @@ Partial Class Form1
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents pbSource As PictureBox
-    Friend WithEvents pbPreview As PictureBox
     Friend WithEvents txbOutput As TextBox
     Friend WithEvents btnGenerate As Button
     Friend WithEvents Label1 As Label
@@ -187,4 +190,6 @@ Partial Class Form1
     Friend WithEvents rb32x32 As RadioButton
     Friend WithEvents rb16x16 As RadioButton
     Friend WithEvents rb8x8 As RadioButton
+    Friend WithEvents pbSource As PictureBoxWithInterpolationMode
+    Friend WithEvents pbPreview As PictureBoxWithInterpolationMode
 End Class
