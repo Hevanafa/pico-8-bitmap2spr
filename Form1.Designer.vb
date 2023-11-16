@@ -34,6 +34,7 @@ Partial Class Form1
         Me.rb16x16 = New System.Windows.Forms.RadioButton()
         Me.rb8x8 = New System.Windows.Forms.RadioButton()
         Me.lblHint = New System.Windows.Forms.Label()
+        Me.btnColourScheme = New System.Windows.Forms.Button()
         CType(Me.pbSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -80,8 +81,8 @@ Partial Class Form1
         'btnGenerate
         '
         Me.btnGenerate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnGenerate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGenerate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.Location = New System.Drawing.Point(13, 165)
         Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGenerate.Name = "btnGenerate"
@@ -173,13 +174,25 @@ Partial Class Form1
         Me.lblHint.Text = "Drag an image file to this window to start"
         Me.lblHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'btnColourScheme
+        '
+        Me.btnColourScheme.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.btnColourScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnColourScheme.Location = New System.Drawing.Point(13, 379)
+        Me.btnColourScheme.Name = "btnColourScheme"
+        Me.btnColourScheme.Size = New System.Drawing.Size(227, 32)
+        Me.btnColourScheme.TabIndex = 8
+        Me.btnColourScheme.Text = "Obtain Colour Scheme for TIC-80"
+        Me.btnColourScheme.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(387, 385)
+        Me.ClientSize = New System.Drawing.Size(387, 423)
+        Me.Controls.Add(Me.btnColourScheme)
         Me.Controls.Add(Me.lblHint)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
@@ -215,4 +228,5 @@ Partial Class Form1
     Friend WithEvents pbSource As PictureBoxWithInterpolationMode
     Friend WithEvents pbPreview As PictureBoxWithInterpolationMode
     Friend WithEvents lblHint As Label
+    Friend WithEvents btnColourScheme As Button
 End Class

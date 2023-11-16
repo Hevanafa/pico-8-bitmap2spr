@@ -119,6 +119,11 @@
     End Function
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
+        If edited Is Nothing Then
+            MessageBox.Show("There is no image loaded.")
+            Exit Sub
+        End If
+
         Dim img As Bitmap = pbSource.Image
 
         Dim size% = GetConversionSize()
@@ -161,5 +166,9 @@
 
     Private Sub rb64x64_CheckedChanged(sender As Object, e As EventArgs) Handles rb64x64.CheckedChanged
         RedrawPreview()
+    End Sub
+
+    Private Sub btnColourScheme_Click(sender As Object, e As EventArgs) Handles btnColourScheme.Click
+        txbOutput.Text = My.Resources.ColourScheme
     End Sub
 End Class
